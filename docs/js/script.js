@@ -1,26 +1,34 @@
 'use strict';
 
+
+
 function history(coin1, coin2) {
     alert('History graphs coming soon', coin1, coin2);
 }
 
 
 
+var editableGrid = null;
+
 alert("Needs to be run locally.");
 
 let checkedMarkets = {
-        showAll: true,
+        showAll: false,
         bittrex: true,
-        poloniex: true
+        poloniex: true,
+        binance: false,
+        liqui: true
 
     },
     checkedCoins = {
         showAll: false,
-        // TIC: false,
+        NET: false,
         // PLC: false
     };
 
 let addOne = true;
+
+
 
 function addRemoveAll(coinsOrMarkets) {
 
@@ -202,6 +210,39 @@ $(window).load(function () {
         }
     }
 
+    function loadXML()
+    {
+
+      
+
+          /*
+    	editableGrid = new EditableGrid("DemoGridSimple", {
+
+    		// called when the XML has been fully loaded
+    		tableLoaded: function() {
+
+    			// display a message
+    			_$("message").innerHTML = "<p class='ok'>Ready!</p>";
+
+    			// renderer for the action column
+    			this.setCellRenderer("action", new CellRenderer({render: function(cell, value) {
+    				cell.innerHTML = "<a onclick=\"if (confirm('Are you sure you want to delete this person ? ')) editableGrid.remove(" + cell.rowIndex + ");\" style=\"cursor:pointer\">" +
+    								 "<img src=\"delete.png\" border=\"0\" alt=\"delete\" title=\"delete\"/></a>";
+    			}}));
+
+    			// render the grid
+    			this.renderGrid("tablecontent", "testgrid");
+    		},
+
+    		// called when some value has been modified: we display a message
+    		modelChanged: function(rowIdx, colIdx, oldValue, newValue, row) { _$("message").innerHTML = "<p class='ok'>New value is '" + newValue + "'</p>"; }
+    	});
+
+    	// load XML file
+    	editableGrid.loadXML("docs/grid.xml");
+      */
+    }
+
     useData = function () {
         console.log(data);
         let topN = $('.loadNumberInput').val();
@@ -219,7 +260,7 @@ $(window).load(function () {
                         data[j].market1.name === market2 //equal ...
                         && data[j].market2.name === market1 // to opposite market
                         && data[i].coin !== data[j].coin //and isnt the same coin as pair
-                        && data[j].coin !== 'BTC' //and isnt BTC
+                        && data[j].coin !== 'ETH' //and isnt BTC
                         && checkedCoins[data[j].coin] //and isnt remove
                         && checkedCoins[data[j].coin][0] !== market1
                         && checkedCoins[data[j].coin][0] !== market2) // and isnt disabled
@@ -232,25 +273,30 @@ $(window).load(function () {
                     let context = { //All required data
                         coin: data[i].coin,
                         diff: ((data[i].spread - 1) * 100).toFixed(3),
-                        market2price: (data[i].market2.last * 1000).toPrecision(3),
+                        market2price: (data[i].market2.last * 1000).toPrecision(5),
                         market2: market2,
-                        market1price: (data[i].market1.last * 1000).toPrecision(3),
+                        market1price: (data[i].market1.last * 1000).toPrecision(5),
                         market1: market1,
                         pair: {
                             coin: data[pairIndex].coin,
                             diff: ((data[pairIndex].spread - 1) * 100).toFixed(3),
-                            market2price: (data[pairIndex].market2.last * 1000).toPrecision(3),
+                            market2price: (data[pairIndex].market2.last * 1000).toPrecision(5),
                             market2: data[pairIndex].market2.name,
-                            market1price: (data[pairIndex].market1.last * 1000).toPrecision(3),
+                            market1price: (data[pairIndex].market1.last * 1000).toPrecision(5),
                             market1: data[pairIndex].market1.name,
                         },
                         totalDiff: (((data[i].spread - 1) * 100) + ((data[pairIndex].spread - 1) * 100)).toFixed(2)
                     };
 
                     if (i === data.length - highestN) { //Add only the highest
+
                         $('.best-pair').empty();
                         let bestHTML = bestTemplate(context);
                         $('.best-pair').append(bestHTML);
+                        $('.socket-loader').empty();
+                        $('.socket-loader').append(bestHTML);
+
+
                     }
 
 
@@ -271,6 +317,7 @@ $(window).load(function () {
         }
     };
 
+
     let waitForMoreData;
 
     socket.on('results', function (results) {
@@ -288,12 +335,9 @@ $(window).load(function () {
                 data = results;
                 useData();
             }, 1000); //Wait a second before we run the function in case we get newer data within less than a second
+            loadXML();
         }
 
     });
 
 });
-
-
-
-

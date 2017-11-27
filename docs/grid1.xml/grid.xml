@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table>
+
+	<metadata>
+		<column name="exchange1priceBuy" label="exchange1priceBuy" datatype="string" editable="false"/>
+		<column name="exchange1vol" label="exchange1vol" datatype="float" editable="false"/>
+		<column name="exchange1priceSell" label="exchange1priceSell" datatype="float" editable="false"/>
+		<column name="exchange2priceBuy" label="exchange1priceBuy" datatype="string" editable="false"/>
+		<column name="exchange2vol" label="exchange1vol" datatype="float" editable="false"/>
+		<column name="exchange2priceSell" label="exchange1priceSell" datatype="float" editable="false"/>
+		<column name="difference" label="Difference+" datatype="float" editable="false"/>
+		<column name="difference2" label="Difference-" datatype="float" editable="false"/>
+	</metadata>
+
+	<data>new names</data>
+</table>

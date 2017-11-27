@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table>
+
+	<metadata>
+		<column1 name="exchange1priceBuy" label="exchange1priceBuy" datatype="string" editable="false"/>
+		<column2 name="exchange1volBuy" label="vol" datatype="float" editable="false"/>
+		<column3 name="exchange1priceSell" label="exchange1priceSell" datatype="float" editable="false"/>
+		<column4 name="exchange1volSell" label="vol" datatype="float" editable="false"/>
+		<column5 name="exchange2priceBuy" label="exchange2priceBuy" datatype="string" editable="false"/>
+		<column6 name="exchange2volBuy" label="vol" datatype="float" editable="false"/>
+		<column7 name="exchange2priceSell" label="exchange2priceSell" datatype="float" editable="false"/>
+		<column8 name="exchange2volSell" label="vol" datatype="float" editable="false"/>
+		<column9 name="difference" label="Difference+" datatype="float" editable="false"/>
+		<column10 name="difference2" label="Difference-" datatype="float" editable="false"/>
+	</metadata>
+
+	<data>
+			<row>
+			<column1>0.00036914</column1>
+			<column2>450.00000000</column2>
+			<column3>0.00037411</column3>
+			<column4>585.00000000</column4>
+			<column5>0.00036694</column5>
+			<column6>58268</column6>
+			<column7>0.00037186</column7>
+			<column8>1250.74196727</column8>
+			<column9> ? %</column9>
+			<column10> ? %</column10>
+
+	</row>
+	<row1>
+	<column1>0.00036913</column1>
+	<column2>13863.00000000</column2>
+	<column3>0.00037600</column3>
+	<column4>1130.00000000</column4>
+	<column5>0.00036605</column5>
+	<column6>3705.27539585</column6>
+	<column7>0.00037232</column7>
+	<column8>52.33704785</column8>
+	<column9> ? %</column9>
+	<column10> ? %</column10>
+
+</row1>
+
+<row2>
+<column1>0.00036844</column1>
+<column2>40.00000000</column2>
+<column3>0.00037789</column3>
+<column4>40.00000000</column4>
+<column5>0.00036228</column5>
+<column6>7209.279</column6>
+<column7>0.00038023</column7>
+<column8>7504.805</column8>
+<column9> ? %</column9>
+<column10> ? %</column10>
+
+</row2>
+
+<row3>
+<column1>0.00036500</column1>
+<column2>1279.00000000</column2>
+<column3>0.00037978</column3>
+<column4>2159.00000000</column4>
+<column5>0.00036227</column5>
+<column6>18671.94103044</column6>
+<column7>0.00038024</column7>
+<column8>528.04107187</column8>
+<column9> ? %</column9>
+<column10> ? %</column10>
+
+</row3>
+	</data>
+</table>

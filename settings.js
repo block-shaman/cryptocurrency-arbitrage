@@ -71,8 +71,8 @@ let markets = [
             return new Promise(function (res, rej) {
                 try {
                     for (let obj of data.result) {
-                        if(obj["MarketName"].includes('BTC-')) {
-                            let coinName = obj["MarketName"].replace("BTC-", '');
+                        if(obj["MarketName"].includes('ETH-') && !obj["MarketName"].includes('BTS')) {
+                            let coinName = obj["MarketName"].replace("ETH-", '');
                             if (!coin_prices[coinName]) coin_prices[coinName] = {};
                             coin_prices[coinName].bittrex = obj.Last;
                         }
@@ -87,63 +87,117 @@ let markets = [
             })
         },
 
-    },
-
-    {
-        marketName: 'btc38',
-        URL: 'http://api.btc38.com/v1/ticker.php?c=all&mk_type=cny',
+    },{
+        marketName: 'binance',
+        URL: 'https://binance.com/api/v1/ticker/allPrices',
         toBTCURL: false,
         pairURL : '',
-        last: function (data, coin_prices, toBTCURL) { //Where to find the last price of coin in JSON data
-            return new Promise(function (res, rej) {
-                let priceOfBTC = data.btc.ticker.last;
-                try {
-                    for (let key in data) {
-                        let coinName = key.toUpperCase();
-                        let price = data[key]['ticker'].last;
-                        if (!coin_prices[coinName]) coin_prices[coinName] = {};
+        last: function (data, coin_prices) { //Where to find the last price of coin in JSON data
 
-                        coin_prices[coinName]["btc38"] = data[key]['ticker'].last / priceOfBTC;
+            return new Promise(function (res, rej) {
+
+                try {
+
+
+
+                  for (let obj of data) {
+
+                        if(!obj["symbol"].includes('LRC') && !obj["symbol"].includes('ZEC')) {
+
+                            let coinName = obj["symbol"].replace("ETH", '');
+
+                            if (!coin_prices[coinName]) coin_prices[coinName] = {};
+                            coin_prices[coinName].binance = obj.price;
+                        }
+                      /*  if(obj["symbol"].includes('ETH')) {
+                            let coinName = obj["symbol"].replace("ETH", '');
+                            if (!coin_prices[coinName]) coin_prices[coinName] = {};
+                            coin_prices[coinName].bittrex = obj.Last;
+                        } */
                     }
                     res(coin_prices);
                 }
-
                 catch (err) {
                     console.log(err);
-                    rej(err)
+                    rej(err);
                 }
-            })
-        }
-    },
 
+            })
+        },
+
+    },/*
     {
-        marketName: 'jubi',
-        URL: 'https://www.jubi.com/api/v1/allticker/', //URL To Fetch API From.
-        toBTCURL: false, //URL, if needed for an external bitcoin price api.
+        marketName: 'kucoin',
+        URL: 'https://api.kucoin.com/v1/open/tick',
+        toBTCURL: false,
         pairURL : '',
-        last: function (data, coin_prices, toBTCURL) { //Where to find the last price of coin in JSON data
-            return new Promise(function (res, rej) {
-                let priceOfBTC = data.btc.last;
-                console.log(priceOfBTC);
-                try {
-                    for (let key in data) {
-                        let coinName = key.toUpperCase();
-                        let price = data[key].last;
-                        if (!coin_prices[coinName]) coin_prices[coinName] = {};
+        last: function (data, coin_prices) { //Where to find the last price of coin in JSON data
 
-                        coin_prices[coinName]["jubi"] = data[key].last / priceOfBTC;
+            return new Promise(function (res, rej) {
+
+                try {
+                  //console.log("===kucoin===");
+                  //console.log(data);
+                  //console.log(data[0]);
+                  //console.log(coin_prices);
+
+                  for (var obj in data) {
+                        if(!obj["symbol"].includes('LRC') && !obj["symbol"].includes('ZEC')) {
+                            let coinName = obj["symbol"].replace("-ETH", '');
+                            if (!coin_prices[coinName]) coin_prices[coinName] = {};
+                            coin_prices[coinName].binance = obj.price;
+                        }
                     }
                     res(coin_prices);
                 }
-
                 catch (err) {
                     console.log(err);
-                    rej(err)
+                    rej(err);
                 }
+
             })
-        }
+        },
+
+    },*/
+    {
+        marketName: 'liqui',
+        URL: 'https://api.liqui.io/api/3/ticker/eth_btc-ven_btc-salt_btc-snm_btc-bmc_btc-bat_btc-knc_btc-stx_btc-dnt_btc-gnt_btc-trx_btc-ae_btc-zrx_btc-mgo_btc-tnt_btc-ltc_btc-adx_btc-mana_btc-1st_btc-edg_btc-vsl_btc-taas_btc-sngls_btc-myst_btc-xid_btc-snt_btc-ant_btc-gup_btc-icn_btc-wings_btc-omg_btc-eos_btc-oax_btc-dash_btc-ptoy_btc-mco_btc-tkn_btc-waves_btc-trst_btc-bcc_btc-storj_btc-pro_btc-pay_btc-rlc_btc-cfi_btc-plu_btc-qrl_btc-bnt_btc-gno_btc-san_btc-time_btc-mln_btc-cvc_btc-lun_btc-net_btc-dgd_btc-rep_btc-hmq_btc-qtum_btc-ind_btc-bcap_btc-round_btc-incnt_btc',
+        toBTCURL: false,
+        pairURL : '',
+        last: function (data, coin_prices) { //Where to find the last price of coin in JSON data
+
+            return new Promise(function (res, rej) {
+
+                try {
+
+
+                  for (var obj in data) {
+                    //console.log(data);
+                      if(!obj.includes('_btc')&&obj!=="incnt_eth"&&obj!=="qtum_eth") {
+                            let priceCoin = data[obj].last;
+                            let coinName = obj.replace("_eth", '').toUpperCase();
+                            if (!coin_prices[coinName]) coin_prices[coinName] = {};
+                            coin_prices[coinName].liqui = priceCoin;
+                          }
+                      /*  if(obj["symbol"].includes('ETH')) {
+                            let coinName = obj["symbol"].replace("ETH", '');
+                            if (!coin_prices[coinName]) coin_prices[coinName] = {};
+                            coin_prices[coinName].bittrex = obj.Last;
+                        } */
+                    }
+                    res(coin_prices);
+                }
+                catch (err) {
+                    console.log(err);
+                    rej(err);
+                }
+
+            })
+        },
 
     },
+
+
 
 
     {
@@ -155,8 +209,8 @@ let markets = [
             return new Promise(function (res, rej) {
                 try {
                     for (var obj in data) {
-                        if(obj.includes('BTC_')&&obj!=="BTC_EMC2") {
-                            let coinName = obj.replace("BTC_", '');
+                        if(obj.includes('ETH_')&&obj!=="ETH_EMC2"&&obj!=="ETH_XVC") {
+                            let coinName = obj.replace("ETH_", '');
                             if (!coin_prices[coinName]) coin_prices[coinName] = {};
                             coin_prices[coinName].poloniex = data[obj].last;
                         }
@@ -172,7 +226,37 @@ let markets = [
         },
 
     },
-    
+/*
+    {
+
+          marketName: 'etherdelta', // kraken has no one size fits all market summery so each pair has to be entered as param in GET - will need to add new coins as they are added to exchange
+          URL: 'https://api.etherdelta.com/returnTicker', //URL To Fetch API From.
+          toBTCURL: false, //URL, if needed for an external bitcoin price api.
+          pairURL : '',
+          last: function (data, coin_prices) { //Where to find the last price of coin in JSON data
+              return new Promise(function (res, rej) {
+                  try {
+                      for (var obj in data) {
+                          if(obj.includes('ETH_') && !obj.includes('BTG')) {
+                              let coinName = obj.replace("ETH_", '');
+                              if (!coin_prices[coinName]) coin_prices[coinName] = {};
+                              //console.log(coinName);
+                              //console.log("Price:" + data[obj].last.toFixed(9).toString());
+                              coin_prices[coinName].etherdelta = data[obj].last;
+                          }
+                      }
+                      res(coin_prices);
+                  }
+                  catch (err) {
+                      console.log(err);
+                      rej(err);
+                  }
+
+
+              })
+          },
+      },
+
     {
 		marketName: 'cryptopia',
 		URL: 'https://www.cryptopia.co.nz/api/GetMarkets/BTC', //URL To Fetch API From.
@@ -189,7 +273,7 @@ let markets = [
                         }
                     }
                     res(coin_prices);
-					
+
                 }
                 catch (err) {
                     console.log(err);
@@ -199,34 +283,8 @@ let markets = [
             })
 		},
 	},
-    
-    {
-		marketName: 'bleutrade',
-		URL: 'https://bleutrade.com/api/v2/public/getmarketsummaries', //URL To Fetch API From.
-		toBTCURL: false, //URL, if needed for an external bitcoin price api.
-        pairURL : '',
-        last: function (data, coin_prices) { //Get the last price of coins in JSON data
-			return new Promise(function (res, rej) {
-				try {
-					for (let obj of data.result) {
-						if(obj["MarketName"].includes('_BTC')) {
-							let coinName = obj["MarketName"].replace("_BTC", '');
-							if (!coin_prices[coinName]) coin_prices[coinName] = {};
-							coin_prices[coinName].bleutrade = obj.Last;
-                        }
-                    }
-                    res(coin_prices);
-					
-                }
-                catch (err) {
-                    console.log(err);
-                    rej(err);
-                }
 
-            })
-		},
-	},
-	
+
 	{
 
         marketName: 'kraken', // kraken has no one size fits all market summery so each pair has to be entered as param in GET - will need to add new coins as they are added to exchange
@@ -237,7 +295,7 @@ let markets = [
             return new Promise(function (res, rej) {
                 try {
                     for (let key in data.result) {
-                        let arr = key.match(/DASH|EOS|GNO|ETC|ETH|ICN|LTC|MLN|REP|XDG|XLM|XMR|XRP|ZEC/); // matching real names to weird kraken api coin pairs like "XETCXXBT" etc 
+                        let arr = key.match(/DASH|EOS|GNO|ETC|ETH|ICN|LTC|MLN|REP|XDG|XLM|XMR|XRP|ZEC/); // matching real names to weird kraken api coin pairs like "XETCXXBT" etc
                         let name = key;
                         let matchedName = arr[0];
                         if (matchedName === "XDG") { //kraken calls DOGE "XDG" for whatever reason
@@ -248,7 +306,7 @@ let markets = [
                         }
 
                         if (!coin_prices[coinName]) coin_prices[coinName] = {};
-                        
+
                         coin_prices[coinName].kraken = data.result[name].c[0];
 
                     }
@@ -263,6 +321,7 @@ let markets = [
             })
         },
     },
+    */
 
 ];
 
