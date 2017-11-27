@@ -1,6 +1,10 @@
 /**
  * Created by Manu Masson on 6/27/2017.
+<<<<<<< HEAD
  * Forked by BS on 11/11/2017
+=======
+ * Modified by Block-Shaman on 11/11/2017
+>>>>>>> aa62d228ba4de507d20cab8e3b3c2d3bf886abcd
  *
  */
 
