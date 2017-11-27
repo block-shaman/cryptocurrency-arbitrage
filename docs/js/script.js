@@ -213,7 +213,7 @@ $(window).load(function () {
     function loadXML()
     {
 
-      
+
 
           /*
     	editableGrid = new EditableGrid("DemoGridSimple", {

@@ -1,15 +1,15 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-# Crypto Arbitrage Ether - a node.js script to help find and act on arbitrage opportunities. 
+# Crypto Arbitrage Ether - a node.js script to help find and act on arbitrage opportunities.
 A cryptocurrency arbitrage opportunity calculator and trading bot. Over 800 currencies and 50 markets.
 This bot will always gather order books live for best pairs, and you will have a choice of buy/sell in future.
 
 To use install nodejs ^V8.00 and run `npm install` in the folder where the script `main.js` is. To run the program write `node main` or `npm start`. To change market settings, and to add your own markets edit the `settings.js` file.
 
-## Notice: 
+## Notice:
 Unfortunately there is always not enough time, but mvp is nearly there
 
-## Short term **roadmap** 
+## Short term **roadmap**
 
 **Hopefully all done within months, faster with some help :)**
 
@@ -22,7 +22,7 @@ Unfortunately there is always not enough time, but mvp is nearly there
 
 * **V1.5.1** - sync BTC/ETH to USDT for each exchange
 
-**...** 
+**...**
 ## Original README
 
 ## How it works
@@ -94,7 +94,8 @@ Feel free to suggest edits / pull requests or email me at manummasson8@gmail.com
 
 ## Authors
 
-* **Manu Masson** - *Initial work* 
+* **Manu Masson** - *Initial work*
+* **Shammy** - *Ether & Orderbook adoption*
 
 ## License
 

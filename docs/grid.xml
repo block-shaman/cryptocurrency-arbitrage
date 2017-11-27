@@ -16,55 +16,55 @@
 
 	<data>
 			<row>
-			<column1>0.00036914</column1>
-			<column2>450.00000000</column2>
-			<column3>0.00037411</column3>
-			<column4>585.00000000</column4>
-			<column5>0.00036694</column5>
-			<column6>58268</column6>
-			<column7>0.00037186</column7>
-			<column8>1250.74196727</column8>
+			<column1>0.00004743</column1>
+			<column2>260.00000000</column2>
+			<column3>0.00004757</column3>
+			<column4>260.00000000</column4>
+			<column5>0.00004602</column5>
+			<column6>30390.34655278</column6>
+			<column7>0.00004871</column7>
+			<column8>3770.40287113</column8>
 			<column9> ? %</column9>
 			<column10> ? %</column10>
 
 	</row>
 	<row1>
-	<column1>0.00036913</column1>
-	<column2>13863.00000000</column2>
-	<column3>0.00037600</column3>
-	<column4>1130.00000000</column4>
-	<column5>0.00036605</column5>
-	<column6>3705.27539585</column6>
-	<column7>0.00037232</column7>
-	<column8>52.33704785</column8>
+	<column1>0.00004734</column1>
+	<column2>260.00000000</column2>
+	<column3>0.00004760</column3>
+	<column4>775.00000000</column4>
+	<column5>0.00004587</column5>
+	<column6>266030</column6>
+	<column7>0.00004891</column7>
+	<column8>247.87895657</column8>
 	<column9> ? %</column9>
 	<column10> ? %</column10>
 
 </row1>
 
 <row2>
-<column1>0.00036844</column1>
-<column2>40.00000000</column2>
-<column3>0.00037789</column3>
-<column4>40.00000000</column4>
-<column5>0.00036228</column5>
-<column6>7209.279</column6>
-<column7>0.00038023</column7>
-<column8>7504.805</column8>
+<column1>0.00004725</column1>
+<column2>250.00000000</column2>
+<column3>0.00004767</column3>
+<column4>260.00000000</column4>
+<column5>0.00004586</column5>
+<column6>147414.32721665</column6>
+<column7>0.00004958</column7>
+<column8>202983.54564</column8>
 <column9> ? %</column9>
 <column10> ? %</column10>
 
 </row2>
 
 <row3>
-<column1>0.00036500</column1>
-<column2>1279.00000000</column2>
-<column3>0.00037978</column3>
-<column4>2159.00000000</column4>
-<column5>0.00036227</column5>
-<column6>18671.94103044</column6>
-<column7>0.00038024</column7>
-<column8>528.04107187</column8>
+<column1>0.00004700</column1>
+<column2>250.00000000</column2>
+<column3>0.00004777</column3>
+<column4>250.00000000</column4>
+<column5>0.00004585</column5>
+<column6>23555.07088331</column6>
+<column7>0.00004959</column7>
+<column8>75973.16967198</column8>
 <column9> ? %</column9>
 <column10> ? %</column10>
 

@@ -574,6 +574,7 @@ const config = {
   gasPrice: 4000000000,
 };
 
+var count = 0;
 
 
 (async function main() {
@@ -590,8 +591,9 @@ const config = {
 
         .catch(e => console.log(e));
 
+        let whichOne = results[count];
+        count++;
 
-        let whichOne = results[0];
         let coin = whichOne.coin;
         //let coin = "MCO";
         console.log("=====",coin,"===== ||| ", whichOne.market1, " vs ", whichOne.market2, "===========");
@@ -663,7 +665,6 @@ const config = {
             { path: '//table//data//row3//column8', text: orders2Sell[7] }
 
           ])).pipe(gulp.dest("docs/"));
-        //  count++;
 
 
         console.log("done.");
