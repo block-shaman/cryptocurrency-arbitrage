@@ -1,33 +1,29 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-# Crypto Arbitrage - a node.js script to help find and act on arbitrage opportunities. 
+# Crypto Arbitrage Ether - a node.js script to help find and act on arbitrage opportunities. 
 A cryptocurrency arbitrage opportunity calculator and trading bot. Over 800 currencies and 50 markets.
+This bot will always gather order books live for best pairs, and you will have a choice of buy/sell in future.
 
-To use, go to https://manu354.github.io/cryptocurrency-arbitrage/ , for development install nodejs ^V8.00 and run `npm install` in the folder where the script `main.js` is. To run the program write `node main` or `npm start`. To change market settings, and to add your own markets edit the `settings.js` file.
+To use install nodejs ^V8.00 and run `npm install` in the folder where the script `main.js` is. To run the program write `node main` or `npm start`. To change market settings, and to add your own markets edit the `settings.js` file.
 
 ## Notice: 
-I am now only focusing on the trading bot. Unfortunately I am going to keep that code private, and will not have time to work on this public version. Feel free to still make pull requests - I will still take a look at any issues when they pop up.
+Unfortunately there is always not enough time, but mvp is nearly there
 
 ## Short term **roadmap** 
 
-**Hopefully all done within a month, faster with some help :)**
+**Hopefully all done within months, faster with some help :)**
 
-* **V1.0.0** ~~core server code - logs the results to the terminal. No bot functionailty. No frontend.~~
-* **v1.1.0** - ~~create api endpoints and display data on a minimal front end.~~
-* **v1.2.0** - ~~host server and implement websockets.~~
-* **v1.3.0** - ~~add the top 10 most popular cc markets manually.~~ [bugs](https://github.com/manu354/arbitrage/wiki/bugs-v1.3.0)
-* **v1.4.0** - ~~make the frontend actually look like something, not just display the raw data~~
-* Current: **v1.5.0** - ~~let users disable specific markets and coins.~~ ~~TODO: addRemoveAll() and search through list~~
-* **V1.5.1** - peg BTC to USD for each exchange
-* **V1.5.2** - more info tab: show maximum volume (maybe?) and highest bid / lowest ask for each opportunity
-* **V1.5.3** - design a movile view for the frontend
-* **V1.5.4** - don't show / warn about disabled coins on exchanges
-* **v1.5.5** - implement fees into the final profit
-* **v1.6.0** - add graphs with history of arbitrage opportunities for every coin. 
-* **v1.7.0** - account login/signup functionialty with passport to allow users to add their own markets.
-* **v2.0.0** - Implement a trading bot for atleast 2 markets.
+* **V1.0.0** ~~Forked and changed to ether, added extra exchanges~~
+* **v1.1.0** - ~~Major core modifications.~~
+* **v1.2.0** - ~~Order books, opportunity~~
+* **v1.2.4** - ~~orderbook table~~
+* **v1.3.0** - ~~all orderbooks convert to generic format~~
+* **v1.4.0** - ~~API calls of 3 exchanges re-written.~~
+
+* **V1.5.1** - sync BTC/ETH to USDT for each exchange
 
 **...** 
+## Original README
 
 ## How it works
 
